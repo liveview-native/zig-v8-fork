@@ -51,7 +51,7 @@ pub fn build(b: *std.Build) !void {
             // trailing slash for rsync src is important, but Zig really doesn't
             // want to add it, so this is what I came up with.
             const build_tools = b.path("build-tools");
-            const build_tools_path = b.fmt("{any}/", .{build_tools.getPath3(b, null)});
+            const build_tools_path = b.fmt("{s}/", .{build_tools.getPath3(b, null).sub_path});
             var cp_build_files = b.addSystemCommand(&.{ "rsync", "-r", build_tools_path, "v8" });
             cp_build_files.setCwd(root_path);
             cp_build_files.step.dependOn(&mkdir_v8_dir.step);
@@ -132,6 +132,7 @@ pub fn build(b: *std.Build) !void {
         const os = switch (target.result.os.tag) {
             .linux => "linux",
             .macos => "macos",
+            .ios => "ios",
             else => return error.UnsupportedPlatform,
         };
 

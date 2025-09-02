@@ -45,11 +45,13 @@ tools/gn \
   gen ${OUT} \
   --args="
     target_os=\"${OS}\"
+    target_environment=\"${TARGET_ENVIRONMENT}\"
     target_cpu=\"${TARGET_ARCH}\"
     host_cpu=\"${TARGET_ARCH}\"
     is_debug=${IS_DEBUG}
     symbol_level=${SYMBOL_LEVEL}
     is_official_build=false ${EXTRA_ARGS}
+    v8_enable_webassembly=false
   "
 
 tools/ninja -C ${OUT} "c_v8"
