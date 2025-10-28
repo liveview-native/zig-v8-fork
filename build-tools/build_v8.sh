@@ -36,7 +36,7 @@ if [ "${OS}" = "ios" ]; then
   EXTRA_ARGS="v8_enable_pointer_compression=false v8_enable_webassembly=false target_environment=\"${TARGET_ENVIRONMENT}\""
 fi
 if [ "${OS}" = "android" ]; then
-  EXTRA_ARGS="v8_use_snapshot=true use_custom_libcxx=false"
+  EXTRA_ARGS="is_component_build=false v8_target_cpu=\"${TARGET_ARCH}\" use_custom_libcxx=false android_ndk_root=\"${ANDROID_NDK_ROOT}\" android_ndk_version=\"${ANDROID_NDK_VERSION}\""
 fi
 
 TARGET_ARCH=${ARCH}

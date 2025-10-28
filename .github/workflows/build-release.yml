@@ -175,6 +175,7 @@ jobs:
     env:
       OS: android
       ARCH: arm64
+      ANDROID_NDK_VERSION: r28
     runs-on: ubuntu-22.04
     steps:
       - name: Set up JDK 17
@@ -188,7 +189,7 @@ jobs:
 
       - uses: nttld/setup-ndk@v1
         with:
-          ndk-version: r26d
+          ndk-version: ${{ env.ANDROID_NDK_VERSION }}
 
       - uses: mlugg/setup-zig@v2
         with:
