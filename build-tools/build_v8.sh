@@ -35,6 +35,9 @@ fi
 if [ "${OS}" = "ios" ]; then
   EXTRA_ARGS="v8_enable_pointer_compression=false v8_enable_webassembly=false target_environment=\"${TARGET_ENVIRONMENT}\""
 fi
+if [ "${OS}" = "android" ]; then
+  EXTRA_ARGS="android_ndk_root = \"'${ANDROID_NDK_ROOT}'\""
+fi
 
 TARGET_ARCH=${ARCH}
 if [ "${ARCH}" = "amd64" ]; then

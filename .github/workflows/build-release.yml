@@ -177,6 +177,10 @@ jobs:
       ARCH: arm64
     runs-on: ubuntu-22.04
     steps:
+      - uses: nttld/setup-ndk@v1
+        with:
+          ndk-version: r26d
+
       - uses: mlugg/setup-zig@v2
         with:
           version: ${{ env.ZIG_VERSION }}
@@ -192,6 +196,8 @@ jobs:
 
       - run: OS=linux zig build get-v8 # We force the OS to macos here b/c ios is not supported by get-v8
       - run: zig build -Doptimize=ReleaseSafe build-v8
+        env:
+          ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
       - run: mv v8/out/${{ env.OS }}/release/obj/zig/libc_v8.a libc_v8_${{ env.V8_REVISION }}_${{ env.OS }}_${{ env.ARCH }}.a
 
       - name: Upload the build
