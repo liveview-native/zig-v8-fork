@@ -7,6 +7,7 @@ source utils.sh
 
 REVISION=14.0.365.4
 
+echo "NDK_ROOT: ${ANDROID_NDK_ROOT}"
 
 clone() {
   if [ -d "${2}" ]; then

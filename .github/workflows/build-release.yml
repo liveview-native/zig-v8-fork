@@ -205,6 +205,8 @@ jobs:
           fetch-depth: 0
 
       - run: OS=linux zig build get-v8 # We force the OS to macos here b/c ios is not supported by get-v8
+        env:
+          ANDROID_NDK_ROOT: ${{ steps.setup-ndk.outputs.ndk-path }}
       - run: zig build -Doptimize=ReleaseSafe build-v8
         env:
           ANDROID_NDK_ROOT: ${{ steps.setup-ndk.outputs.ndk-path }}
