@@ -56,7 +56,6 @@ cloneDep 'third_party/fast_float/src' 'src/third_party/fast_float/src'
 cloneDep 'third_party/dragonbox/src' 'src/third_party/dragonbox/src'
 cloneDep 'third_party/catapult' 'src/third_party/catapult'
 cloneDep 'third_party/android_platform' 'src/third_party/android_platform'
-cloneDep 'third_party/android_sdk/public' 'src/third_party/android_sdk/public'
 cloneDep 'third_party/android_toolchain/ndk' 'src/third_party/android_toolchain/ndk'
 
 # Add an empty gclient_args.gni so gn is happy. gclient also creates an empty file.
