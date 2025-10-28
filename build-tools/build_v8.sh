@@ -36,7 +36,7 @@ if [ "${OS}" = "ios" ]; then
   EXTRA_ARGS="v8_enable_pointer_compression=false v8_enable_webassembly=false target_environment=\"${TARGET_ENVIRONMENT}\""
 fi
 if [ "${OS}" = "android" ]; then
-  EXTRA_ARGS="v8_enable_pointer_compression=false v8_enable_webassembly=false is_component_build=false v8_target_cpu=\"${ARCH}\" use_custom_libcxx=false android_ndk_root=\"${ANDROID_NDK_ROOT}\" android_ndk_version=\"${ANDROID_NDK_VERSION}\" android_ndk_major_version=26"
+  EXTRA_ARGS="v8_enable_pointer_compression=false v8_enable_webassembly=false is_component_build=false v8_target_cpu=\"${ARCH}\" use_custom_libcxx=false android_ndk_root=\"${ANDROID_NDK_ROOT}\" android_ndk_version=\"${ANDROID_NDK_VERSION}\" android_ndk_major_version=28"
 fi
 
 TARGET_ARCH=${ARCH}
@@ -52,7 +52,7 @@ tools/gn \
   --args="
     target_os=\"${OS}\"
     target_cpu=\"${TARGET_ARCH}\"
-    host_cpu=\"${TARGET_ARCH}\"
+    host_cpu=\"${HOST_ARCH}\"
     is_debug=${IS_DEBUG}
     symbol_level=${SYMBOL_LEVEL}
     is_official_build=false ${EXTRA_ARGS}

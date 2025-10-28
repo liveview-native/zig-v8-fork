@@ -176,6 +176,7 @@ jobs:
       OS: android
       ARCH: arm64
       ANDROID_NDK_VERSION: r28
+      HOST_ARCH: x64
     runs-on: ubuntu-22.04
     steps:
       - name: Set up JDK 17
