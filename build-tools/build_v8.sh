@@ -36,7 +36,7 @@ if [ "${OS}" = "ios" ]; then
   EXTRA_ARGS="v8_enable_pointer_compression=false v8_enable_webassembly=false target_environment=\"${TARGET_ENVIRONMENT}\""
 fi
 if [ "${OS}" = "android" ]; then
-  EXTRA_ARGS="android_sdk=\"${ANDROID_SDK_ROOT}/platforms/android-${ANDROID_SDK_VERSION}\" android_sdk_tools=\"${ANDROID_SDK_ROOT}/platform-tools\""
+  EXTRA_ARGS="v8_use_snapshot=true use_custom_libcxx=false"
 fi
 
 TARGET_ARCH=${ARCH}

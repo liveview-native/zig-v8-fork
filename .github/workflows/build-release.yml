@@ -175,7 +175,6 @@ jobs:
     env:
       OS: android
       ARCH: arm64
-      ANDROID_SDK_VERSION: 16
     runs-on: ubuntu-22.04
     steps:
       - name: Set up JDK 17
