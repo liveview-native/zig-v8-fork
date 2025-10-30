@@ -174,7 +174,7 @@ jobs:
   build-android:
     env:
       OS: android
-      ARCH: arm
+      ARCH: arm64
       ANDROID_NDK_VERSION: r28
       HOST_ARCH: x64
     runs-on: ubuntu-22.04
